@@ -309,6 +309,22 @@ async def bible(ctx, *, text=""):
         await ctx.send("OwO that search term was a little.... too short, UwU imma send somehting random.....")
         await ctx.send(linecache.getline('kjv.txt',random.randint(1, 31103)))
 
+@bot.command()
+async def quran(ctx, *, text=""):
+    """search the quran"""
+    quran = open("quran.txt")
+    versicle = quran.readline()
+    if len(text) >= 1:
+        for i in range(0, 6348):
+          if text in versicle.lower():
+            await ctx.send(versicle)
+            break
+          else: 
+            versicle = quran.readline()
+    else:
+        await ctx.send("OwO that search term was a little.... too short, UwU imma send somehting random.....")
+        await ctx.send(linecache.getline('quran.txt',random.randint(1, 31103)))
+
 @bot.command(pass_context=True)
 async def OwO(ctx):
   """OwO!!!! UwU!!!!!"""
